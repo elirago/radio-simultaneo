@@ -5,7 +5,23 @@
         <div id="audio-player-container" class="custom-radio-player" >
           <audio id="player" src="<?=$urlCiudadDestino?>" preload="metadata">
           </audio>
-          <span id="play-icon5" class="pause"></span>
+          <span id="play-icon" class="pause"></span>
+          <input style="display: none;" type="range" id="seek-slider" max="100" value="0">
+          <span id="duration" class="time" style="display: none;">0:00</span>
+          <button class="unmuted" id="mute-icon" style="display: none;"></button>
+          <input style="display: none;" type="range" id="volume-slider" max="100" value="0">
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="radio-player-container">
+  <div class="radio-player-wrapper">
+      <div class="radio-content">
+        <div id="audio-player-container" class="custom-radio-player" >
+          <audio id="player" src="<?=$urlCiudadDestino?>" preload="metadata">
+          </audio>
+          <span id="play-icon3" class="pause"></span>
           <input style="display: none;" type="range" id="seek-slider" max="100" value="0">
           <span id="duration" class="time" style="display: none;">0:00</span>
           <button class="unmuted" id="mute-icon" style="display: none;"></button>
@@ -21,6 +37,7 @@ const seekSlider = document.getElementById('seek-slider');
 const volumeSlider = document.getElementById('volume-slider');
 const audioPlayerContainer = document.getElementById('audio-player-container');
 
+const playIcon = document.getElementById('play-icon');
 const playIcon3 = document.getElementById('play-icon3');
 const muteIcon = document.getElementById('mute-icon');
 
@@ -96,7 +113,7 @@ const whilePlaying = () => {
   raf = requestAnimationFrame(whilePlaying);
 }
 
-if (banderaProgramacion_1!=0) {
+
   const playIcon = document.getElementById('play-icon');
 console.log(playIcon);
 playIcon.addEventListener('click', () => {
@@ -123,86 +140,34 @@ playIcon.addEventListener('click', () => {
     playState = 'play';
   }
 });
-}else{
-const playIcon6 = document.getElementById('play-icon6');
 
-playIcon6.addEventListener('click', () => {
+
+  const playIcon3 = document.getElementById('play-icon3');
+
+playIcon3.addEventListener('click', () => {
 
   if(playState === 'play') {
 
     audio.play();
     getaudio.play();
-    
-    playIcon3.classList.remove('play');
-    playIcon3.classList.add('pause');
-    if (banderaProgramacion_1!=0) {
     playIcon.classList.remove('play');
     playIcon.classList.add('pause');
-  }else{
-    playIcon6.classList.remove('play');
-    playIcon6.classList.add('pause');
-  }
+    playIcon3.classList.remove('play');
+    playIcon3.classList.add('pause');
     requestAnimationFrame(whilePlaying);
     playState = 'pause';
-  
+
   } else {
  
     audio.pause();
-    
-    playIcon3.classList.remove('pause');
-    playIcon3.classList.add('play');
-if (banderaProgramacion_1!=0) {   
     playIcon.classList.remove('pause');
     playIcon.classList.add('play');
-  }else{
-    playIcon6.classList.remove('pause');
-    playIcon6.classList.add('play');
-  }
-    
-    playState = 'play';
-  }
-});
-}
-
-playIcon3.addEventListener('click', () => {
-  if(playState === 'play') {
-    audio.play();
-    getaudio.play();
-    playIcon3.classList.remove('play');
-    playIcon3.classList.add('pause');
-if (banderaProgramacion_1!=0) {
-  const playIcon = document.getElementById('play-icon');
-    playIcon.classList.remove('play');
-    playIcon.classList.add('pause');
-}else{
-  const playIcon6 = document.getElementById('play-icon6');
-  playIcon6.classList.remove('play');
-    playIcon6.classList.add('pause');
-}
-    requestAnimationFrame(whilePlaying);
-    playState = 'pause';
-    
-  } else {
-    
-    audio.pause();
-    getaudio.pause();
-    
-   if (banderaProgramacion_1!=0) {
-   const playIcon = document.getElementById('play-icon'); 
-    playIcon.classList.remove('pause');
-    playIcon.classList.add('play');
-  }else{
-    const playIcon6 = document.getElementById('play-icon6');
-    playIcon6.classList.remove('pause');
-    playIcon6.classList.add('play');
-  }
     playIcon3.classList.remove('pause');
     playIcon3.classList.add('play');
   
     playState = 'play';
   }
 });
-
 
 seekSlider.addEventListener('change', () => {
   audio.currentTime = seekSlider.value;
@@ -245,9 +210,6 @@ muteIcon.addEventListener('click', () => {
     muteIcon.classList.add('unmuted');
   }
 })
-
-/* Implementation of the Media Session API */
-
 
 });
 </script>
