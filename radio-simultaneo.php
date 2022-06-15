@@ -14,7 +14,7 @@
       </div>
   </div>
 </div>
-
+<!--radio 2-->
 <div class="radio-player-container">
   <div class="radio-player-wrapper">
       <div class="radio-content">
@@ -115,7 +115,7 @@ const whilePlaying = () => {
 
 
   const playIcon = document.getElementById('play-icon');
-console.log(playIcon);
+
 playIcon.addEventListener('click', () => {
 
   if(playState === 'play') {
