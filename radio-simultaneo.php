@@ -1,3 +1,20 @@
+<!--radio 1-->
+<div class="radio-player-container">
+  <div class="radio-player-wrapper">
+      <div class="radio-content">
+        <div id="audio-player-container" class="custom-radio-player" >
+          <audio id="player" src="<?=$urlCiudadDestino?>" preload="metadata">
+          </audio>
+          <span id="play-icon5" class="pause"></span>
+          <input style="display: none;" type="range" id="seek-slider" max="100" value="0">
+          <span id="duration" class="time" style="display: none;">0:00</span>
+          <button class="unmuted" id="mute-icon" style="display: none;"></button>
+          <input style="display: none;" type="range" id="volume-slider" max="100" value="0">
+        </div>
+      </div>
+  </div>
+</div>
+
 <script type="text/javascript">
 $( document ).ready(function() {
 const seekSlider = document.getElementById('seek-slider');
