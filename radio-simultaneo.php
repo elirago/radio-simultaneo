@@ -14,6 +14,7 @@
       </div>
   </div>
 </div>
+<!--radio 1-->
 <!--radio 2-->
 <div class="radio-player-container">
   <div class="radio-player-wrapper">
@@ -30,7 +31,7 @@
       </div>
   </div>
 </div>
-
+<!--radio 2-->
 <script type="text/javascript">
 $( document ).ready(function() {
 const seekSlider = document.getElementById('seek-slider');
